@@ -1,21 +1,22 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect } from "react"
 import { Link } from "react-router-dom"
+import { UserContext } from "./UserContext";
 
 export const Navbar = () => {
-    
-    const [username, setUsername] = useState('');
+    //we'll gonna use context
+    //grab the set user information from the context 
+        const {setUserInfo, userInfo} = useContext(UserContext);
+    // const [username, setUsername] = useState('');
     useEffect(() => {
         fetch('http://localhost:4000/profile', {
             credentials: 'include',
             }).then(response => {
                 response.json().then(userInfo =>{
-                    setUsername(userInfo.username);
-
+                    setUserInfo(userInfo);
+                    // setUsername(userInfo.username);
                 });
             });
     }, []);
-
-
     // we'll gonna invalidate the cookie in the backend part or erase the cookie in the backend part
     // If user is logged out it must invalidate the token and reset the username that the user uses
     function logout(){
@@ -24,9 +25,13 @@ export const Navbar = () => {
         method: 'POST',
         });
         // if logged out in the navbar it will reset to the login and register <username>
-        setUsername(null);
+        setUserInfo(null);
+        // setUsername(null);
     }
     
+    //since sometimes the username is new or null then you must add questionmark in the userInfo(?) you must add it if theres new or null or somthing like that
+    const username = userInfo?.username;
+
     return(
         <div>
                {/* <main className ='p-[10px] max-w-[1200px] m-auto '> */}
