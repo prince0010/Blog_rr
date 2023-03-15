@@ -16,7 +16,7 @@ export const Navbar = () => {
                     // setUsername(userInfo.username);
                 });
             });
-    }, []);
+    }, [setUserInfo]);
     // we'll gonna invalidate the cookie in the backend part or erase the cookie in the backend part
     // If user is logged out it must invalidate the token and reset the username that the user uses
     function logout(){
