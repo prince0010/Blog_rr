@@ -1,7 +1,13 @@
 export const CreateNewArticles = () => {
 return(
      <div className='ml-20 pt-[100px]' >
-    You are in Create New Article
+        <form>
+        <input type = 'title' placeholder={'Title'} />
+        <input type ='summary' placeholder={'Summary'} />
+        <input type ='file' />
+
+        </form>
+
     </div>
 )
 
