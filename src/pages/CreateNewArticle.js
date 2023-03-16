@@ -3,6 +3,7 @@ import ReactQuill from 'react-quill';
 //This is to make the reactquill form as a textarea with editors
 import 'react-quill/dist/quill.snow.css';
 
+// Modules is comes from the reactquill in the web npm, just find the modules and the format like search it there in react-quill npm
 const modules = {
     toolbar: [
       [{ 'header': [1, 2, false] }],
@@ -23,14 +24,30 @@ const modules = {
     const [title, setTitle] = useState('');
     const [summary, setSummary] = useState('');
     const [content, setContent] = useState('');
-    // Modules is comes from the reactquill in the web npm, just find the modules and the format like search it there in react-quill npm
+    const [files, setFiles] = useState('');
+        
+    async function createArticle (evt){
+      const data = new FormData();
+      data.set('title', title);
+      data.set('summary', summary);
+      data.set('content', content);
+      //Index in files will be 0 since it will only contain the first image or file that was being added even though there are many files will be inserted or added only the first file or image will be choosen
+      data.set('file', files[0]);
+      evt.preventDefault();
+      // console.log(files);
+     const response = await fetch('http://localhost:4000/post', {
+        method: 'POST',
+        body: data,
+      });
+      console.log(await response.json());      
+    }
 
         return(
      <div className=' ml-16 pt-[100px]' >
-        <form>
+        <form onSubmit={createArticle}>
         <input type = 'title' placeholder={'Title'} value = {title} onChange = {evt => setTitle(evt.target.value)}/>
         <input type ='summary' placeholder={'Suummary'} value = {summary} onChange = {evt => setSummary(evt.target.value)}/>
-        <input type ='file'/>
+        <input type ='file' onChange={evt => setFiles(evt.target.files)}/>
         {/* adding  a package called react-quill && the command is npm install react-quill --save */}
         <div className='ml-9 w-[72rem]'>
         <ReactQuill value={content} modules ={modules} formats={formats} onChange ={newValue => setContent(newValue)}/>
