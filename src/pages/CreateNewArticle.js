@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ReactQuill from 'react-quill';
 //This is to make the reactquill form as a textarea with editors
 import 'react-quill/dist/quill.snow.css';
+import { Navigate } from 'react-router-dom';
 
 // Modules is comes from the reactquill in the web npm, just find the modules and the format like search it there in react-quill npm
 const modules = {
@@ -25,6 +26,8 @@ const modules = {
     const [summary, setSummary] = useState('');
     const [content, setContent] = useState('');
     const [files, setFiles] = useState('');
+    //Create a state when  redirecting to another path or navigate to other page or path and it must be a boolean set it to false dapat jud una
+    const [redirect, setRedirect] = useState(false);
         
     async function createArticle (evt){
       evt.preventDefault();
@@ -37,9 +40,21 @@ const modules = {
         const response = await fetch('http://localhost:4000/post', {
         method: 'POST',
         body: data,
-        });
-        console.log(await response.json());
-    }
+          });
+          // now it makes the navigate to other page or path as a true or available na
+          if(response.ok){
+            setRedirect(true);
+          }
+          // console.log(await response.json());
+        }
+        //Navigate to other page or path after inputting 
+        //If setredirect is true, then it will navigate or redirect to other page or path that you've specify
+        // if redirect == setRedirect japon na and then if it's true, nana which in this case is mu redirect siya sa homepage after mag input sa blog
+        if(redirect){
+         return <Navigate to={'/'} />
+        }
+
+
         return(
      <div className=' ml-16 pt-[100px]' >
         <form onSubmit={createArticle}>
