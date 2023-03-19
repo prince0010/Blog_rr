@@ -1,7 +1,8 @@
 import first from '../assets/example.jpg'
+import { format } from 'date-fns'
 
-
-export const Contententries = () => {
+//ang (title, summary,content, cover, createdAt) mao ni gikan sa json na naa sa response makita pag iinspect og ang 4 is gikan sa Post.js na model
+export const Contententries = ({title, summary,content, cover, createdAt}) => {
     return(
       // 1540
       <div className=' m-auto pt-[90px] -mb-24 -ml-[320px] h-full' >
@@ -16,14 +17,12 @@ export const Contententries = () => {
                      </div>
                      {/* w-[400px] */}
                      <div className="sm:ml-20 sm:w-96 -mr-36">
-                <h2 className='font-bold text-2xl mt-6  '>Full-House Battery backup coming later this year</h2>
+                <h2 className='font-bold text-2xl mt-6  '>{title}</h2>
                 <p className = 'info mt-[6px] text-[#888] text-[.7rem] font-bold flex gap-3'>
                   <a className = 'author text-primaryblack' href='/'> Prince Nagac</a>
-                  <time> 03-11-2023 23:20</time>
+                  <time>{format(new Date(createdAt), 'MMM dd, yyyy HH:mm')}</time>
                    </p>
-                <p className=" summary text-l py-3 my-[10px] leading-6  ">  Today at its special event, home backup power giant EcoFlow launced a flurry of new products, including a 'Whole home Backup Power Solution'
-                Today at its special event, home backup power giant EcoFlow launced a flurry of new products, including a 'Whole home Backup Power Solution'
-                Today at its special event, home backup power giant EcoFlow launced a flurry of new products, including a 'Whole home Backup Power Solution' </p>
+                <p className=" summary text-l py-3 my-[10px] leading-6  ">  {summary} </p>
                 </div>
                 </div>
                 </div>
