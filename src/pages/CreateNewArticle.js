@@ -40,6 +40,7 @@ const modules = {
         const response = await fetch('http://localhost:4000/post', {
         method: 'POST',
         body: data,
+        credentials: 'include',
           });
           // now it makes the navigate to other page or path as a true or available na
           if(response.ok){
