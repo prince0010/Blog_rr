@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Contententries } from "../components/entries";
 
 export const IndexPage = () => {
-    const [posts, setPosts] = useState([]);
+    const [postsI, setPosts] = useState([]);
    // Mount the homepage so when we Mount this will run the function 'the useEffect'
    useEffect(() => {
       //since its async function you can either use the async and await function but i used here is .then
@@ -16,7 +16,7 @@ export const IndexPage = () => {
     return(
        <>
       {/* if posts  */}
-      {posts.length > 0 && posts.map(postscntn => (
+      {postsI.length > 0 && postsI.map(postscntn => (
          // Pass all the properties of components in contentetries like this '{...postscntn}' which is naa na sa entries.js
          <Contententries {...postscntn} />
          ))}

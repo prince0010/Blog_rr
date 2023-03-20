@@ -54,8 +54,6 @@ const modules = {
         if(redirect){
          return <Navigate to={'/'} />
         }
-
-
         return(
      <div className=' ml-16 pt-[100px]' >
         <form onSubmit={createArticle}>

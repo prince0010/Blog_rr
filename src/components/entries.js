@@ -1,4 +1,3 @@
-import first from '../assets/example.jpg'
 import { format } from 'date-fns'
 
 //ang (title, summary,content, cover, createdAt) mao ni gikan sa json na naa sa response makita pag iinspect og ang 4 is gikan sa Post.js na model
@@ -13,19 +12,23 @@ export const Contententries = ({title, summary,content, cover, createdAt, author
                   <div className = "image ">
               <img
               className='max-w-full w-64 m-auto mr-3 sm:w-64 sm:ml-28 md:max-w-full md:w-64 md:ml-28 ' 
-              src={first} alt="Title"></img>
+              src={'http://localhost:4000/'+ cover} alt="Title"></img>
                      </div>
                      {/* w-[400px] */}
                      <div className="sm:ml-20 sm:w-96 -mr-36">
-                <h2 className='font-bold text-2xl mt-6  '>{title}</h2>
+                <h2 className='font-bold text-2xl mt-6  '>
+                             {title}
+                  </h2>
                 <p className = 'info mt-[6px] text-[#888] text-[.7rem] font-bold flex gap-3'>
                   {/* {author.username} this is to call the username from the json of the poster of the blog which is from the endpoint of '/posts' and '/post' */}
                   <a className = 'author text-primaryblack' href='/'>
-                    {author.username}
+                    {author.username} 
                     </a>
                   <time>{format(new Date(createdAt), 'MMM dd, yyyy HH:mm')}</time>
                    </p>
-                <p className=" summary text-l py-3 my-[10px] leading-6  ">  {summary} </p>
+                <p className=" summary text-l py-3 my-[10px] leading-6">  
+                                  {summary} 
+                </p>
                 </div>
                 </div>
                 </div>
