@@ -7,6 +7,7 @@ import { RegisterForm } from './pages/Register';
 import { UserContextProvider } from './components/UserContext';
 import { CreateNewArticles } from './pages/CreateNewArticle';
 import PostPage from './pages/PostPage';
+import { EditPost } from './pages/EditPostPage';
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
       <Route path = {'/login'} element = {<LoginPage/>} />
       <Route path={'/register'} element = {<RegisterForm/>} />   
       <Route path ={'/create'} element  = {<CreateNewArticles/>} />
-      <Route path ={'/posts/:id'} element = {<PostPage />} /> 
+      <Route path ={'/post/:id'} element = {<PostPage />} /> 
+      <Route path ={'/edit/:id'} element ={<EditPost />} />
          </Route>
     </Routes>
     </UserContextProvider>

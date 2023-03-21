@@ -41,7 +41,7 @@ export const LoginPage = () => {
     return <Navigate to={'/'}/>
   }
   return(
-    <div className=' m-auto pt-[120px] ml-18 '>
+    <div className='m-auto pt-[120px] ml-18 '>
             {/* post is a customized className in the App.css */}
            <form className="m-auto max-w-md" onSubmit={Login}>
             <h1 className="font-bold text-3xl text-center py-6"> LOGIN </h1>

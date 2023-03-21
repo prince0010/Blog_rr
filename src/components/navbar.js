@@ -45,9 +45,10 @@ export const Navbar = () => {
             {/* if there is username or logged in then the login and register will change into this */}
             {username && (
                 <>
+               
                 <nav className="flex gap-4">
+                <span>Hello, {username}</span>
                 <Link to = '/create' className=""> Create New Article </Link>
-                <Link to = '/profile' className=""> My Profile </Link>
                 <Link onClick={logout} className=""> Logout </Link>
                 </nav>
                 </>

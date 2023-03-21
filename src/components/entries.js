@@ -11,7 +11,7 @@ export const Contententries = ({_id, title, summary,content, cover, createdAt, a
               {/* post is a customized className in the App.css */}
                 <div className=" grid grid-cols-2 px-72 gap-5 items-center">
                   <div className = "image ">
-                    <Link to ={`/posts/${_id}`}>
+                    <Link to ={`/post/${_id}`}>
               <img
               className='max-w-full w-64 m-auto mr-3 sm:w-64 sm:ml-28 md:max-w-full md:w-64 md:ml-28 ' 
               src={'http://localhost:4000/'+ cover} alt="Title"></img>
@@ -19,9 +19,9 @@ export const Contententries = ({_id, title, summary,content, cover, createdAt, a
                      </div>
                      {/* w-[400px] */}
                      <div className="sm:ml-20 sm:w-96 -mr-36">
-                      {/* backtick /posts/${_id} the endpoit of posts is from the endpoint of posts which contains the data or info of the posts including the id of the image or files, and the _id it is from the database which in the database the id is _id 
+                     {/* backtick /posts/${_id} the endpoit of posts is from the endpoint of posts which contains the data or info of the posts including the id of the image or files, and the _id it is from the database which in the database the id is _id 
                       and it is an _id of the image file, the every image has contain an id */}
-                     <Link to ={`/posts/${_id}`}> 
+                     <Link to ={`/post/${_id}`}> 
                     <h2 className='font-bold text-2xl mt-6  '>
                                 {title}
                       </h2>

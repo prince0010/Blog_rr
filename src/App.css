@@ -26,6 +26,9 @@ input {
   padding: 6px 7px;
 }
 
+
+
+
 .bordersty{
   border: 1px solid #ddd;
 }
@@ -33,4 +36,19 @@ input {
 .bord{
   margin-top: 20px;
   border: 1px solid #ddd;
+}
+
+div.p-page div.image{
+  max-height: 350px;
+  display: flex;
+  overflow: hidden;
+}
+div.p-page div.image img{
+  object-fit: cover;
+  object-position: center center;
+}
+
+div.p-page .astyle{
+  color: #333;
+  text-decoration: underline;
 }
