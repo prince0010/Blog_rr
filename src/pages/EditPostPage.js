@@ -16,7 +16,7 @@ export const EditPost = () => {
     useEffect(() => {
             fetch('http://localhost:4000/post/'+id).then(response => {
                 response.json().then(postInfo => {
-                   setTitle(postInfo.title);
+                setTitle(postInfo.title);
                    setSummary(postInfo.summary);
                    setContent(postInfo.content);
 
